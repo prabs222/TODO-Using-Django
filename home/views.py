@@ -7,7 +7,7 @@ from django.contrib.auth.models import User
 from django.contrib.auth.hashers import make_password, check_password
 import datetime
 from datetime import date
-from .models import users_db
+from .models import *
 # from Clouddemo.models import file/s, formats, images, userdp, users_dbs
 
 
@@ -135,7 +135,37 @@ def logout_view(request):
     }
     return JsonResponse(res , status = 200)
 
+def mylogin(request):
+    if request.method == 'POST':
+        email = request.POST.get('email')
+        password = request.POST.get('password')
+        username = User.objects.get(email = email).username
+        user = authenticate(request, username=username, password=password)
 
+        if user is not None:
+            login(request, user)
+            print("Login successful")
+            return render(request, 'dashboard.html')
+            # res = {'success': True,'message': 'Successfully logged in!!'}
+            # return JsonResponse(res,status = 200)
+        else:
+            res = {'success': False,'message': 'Wrong credentials!!'}
+            return JsonResponse(res,status = 403)
+    # else:
+    #     res = {'success': False,'message': 'Invalid method of 51requesting'}
+    return render(request , 'login.html')
+
+def addTodo(request):
+    if request.user.is_authenticated:
+        context = {}
+        if request.method == 'POST':
+            todo = request.POST.get('todo')
+            Todos.objects.create(todo_name=todo,created_by=request.user)
+        context['todos'] = Todos.objects.filter(created_by=request.user)
+    return render(request,'dashboard.html',context)
+        
+
+    
 
 # def Dashboard(request):
 #     # if request.method == 'GET':
