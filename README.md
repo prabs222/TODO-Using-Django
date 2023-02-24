@@ -99,9 +99,6 @@ Superuser created successfully
 
 - CRUD operation on TODO
 
-## Contributing
-
-Contributions are always welcome!
 
 ## Support++
 
