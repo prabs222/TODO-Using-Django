@@ -181,38 +181,3 @@ def addTodo(request):
     return render(request, "dashboard.html", context)
 
 
-# def Dashboard(request):
-#     # if request.method == 'GET':
-#         if request.user.is_authenticated:
-#             userdata = users_db.objects.filter(user = request.user)[0]
-#             if userdp.objects.filter(user_id = request.user.id).exists():
-#                 dp = userdp.objects.get(user_id = request.user.id)
-#             print(userdata.gender)
-#             print(userdata.dob)
-#             print(request)
-
-#             print(request.user.get_full_name())
-#             sum = 0
-#             sizeobj = files.objects.filter(user_id = request.user.id).values('file')
-#             for i in range(len(sizeobj)):
-#                 obj = files.objects.filter(user_id = request.user.id)[i]
-#                 sum = sum+  obj.file.size
-#             res = {
-#                 "username":  request.user.get_username(),
-#                 "email": request.user.email,
-#                 "name": request.user.get_full_name(),
-#                 "fname": request.user.get_short_name(),
-#                 "dob": userdata.dob.strftime("%d-%m-%Y") ,
-#                 "gender": userdata.gender,
-#                 "phone": userdata.phone_num,
-
-#                 "dp": dp.pc.url,
-#                 "size": sum
-#             }
-#             return JsonResponse(res, status = 200)
-#         else:
-#             res = {
-#                 "success": False,
-#                 "message": "You have to login first"
-#             }
-#             return JsonResponse(res,status = 403)
