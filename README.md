@@ -1,6 +1,6 @@
 # TODO-Using-Django
 
-Basic TODO app in which different users can login and add their own TODO.
+Basic TODO app in which different users can login and add their own TODO with APIS
 
 
 ## Setup Instructions
