@@ -100,10 +100,7 @@ Superuser created successfully
 - CRUD operation on TODO
 
 
-## Support++
 
-This project needs your shiny star ⭐.   
-Don't forget to leave a star ⭐️
 
 [![forthebadge made-with-python](http://ForTheBadge.com/images/badges/made-with-python.svg)](https://www.python.org/)  [![forthebadge](https://forthebadge.com/images/badges/built-with-love.svg)](https://forthebadge.com)
 
